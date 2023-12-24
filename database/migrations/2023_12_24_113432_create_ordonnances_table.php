@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('ordonnances', function (Blueprint $table) {
             $table->id();
             $table->date('date_ordonnance');
-            $table->time('motif_ordonnance');
+            $table->time('heure_ordonnace');
+            $table->string('motif_ordonnace');
             $table->unsignedBigInteger('id_consultation');
             $table->timestamps();
         });
