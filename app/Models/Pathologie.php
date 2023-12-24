@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pathologie extends Model
 {
+    protected $fillable = [
+        'nom_pathologie'
+    ];
     use HasFactory;
 }

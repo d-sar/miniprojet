@@ -17,6 +17,7 @@ return new class extends Migration
             $table->time('motif_consultation');
             $table->unsignedBigInteger('id_pat');
             $table->unsignedBigInteger('id_med');
+            $table->unsignedBigInteger('id_path');
             $table->timestamps();
         });
     }

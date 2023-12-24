@@ -12,15 +12,7 @@ class PathologieController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Pathologie::all();
     }
 
     /**
@@ -28,7 +20,11 @@ class PathologieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pathologie::create($request->post());
+
+        return response()->json([
+            'message' => 'Pathologie created successfully'
+        ]);
     }
 
     /**
@@ -36,23 +32,22 @@ class PathologieController extends Controller
      */
     public function show(Pathologie $pathologie)
     {
-        //
+        return response()->json([
+            'pathologie' => $pathologie
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Pathologie $pathologie)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Pathologie $pathologie)
     {
-        //
+        $pathologie->update($request->post());
+
+        return response()->json([
+            'message' => 'Pathologie updated successfully'
+        ]);
     }
 
     /**
@@ -60,6 +55,10 @@ class PathologieController extends Controller
      */
     public function destroy(Pathologie $pathologie)
     {
-        //
+        $pathologie->delete();
+
+        return response()->json([
+            'message' => 'Pathologie deleted successfully'
+        ]);
     }
 }

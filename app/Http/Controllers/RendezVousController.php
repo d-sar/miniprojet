@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Medecin;
+use App\Models\Rendez_Vous;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
-class MedecinController extends Controller
+class Rendez_VousController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return Medecin::all();
+        return Rendez_Vous::all();
     }
 
     /**
@@ -20,41 +21,44 @@ class MedecinController extends Controller
      */
     public function store(Request $request)
     {
-        Medecin::create($request->post());
+        Rendez_Vous::create($request->post());
+
         return response()->json([
-            'message' => 'Medecin created successfully'
+            'message' => 'Rendez-vous created successfully'
         ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Medecin $medecin)
+    public function show(Rendez_Vous $Rendez_Vous)
     {
         return response()->json([
-            'medecin' => $medecin
+            'Rendez_Vous' => $Rendez_Vous
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Medecin $medecin)
+    public function update(Request $request, Rendez_Vous $Rendez_Vous)
     {
-        $medecin->update($medecin->post());
+        $Rendez_Vous->update($request->post());
+
         return response()->json([
-            'message' => 'Medecin updated successfully'
+            'message' => 'Rendez-vous updated successfully'
         ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Medecin $medecin)
+    public function destroy(Rendez_Vous $Rendez_Vous)
     {
-        $medecin->delete();
+        $Rendez_Vous->delete();
+
         return response()->json([
-            'message' => 'Medecin deleted successfully'
+            'message' => 'Rendez-vous deleted successfully'
         ]);
     }
 }

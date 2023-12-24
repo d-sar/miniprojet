@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('constaters', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_pathologie');
-            $table->unsignedBigInteger('id_consultation');
+        Schema::create('rendez__vouses', function (Blueprint $table) {
+            $table->id();
+            $table->date('date_rendez_vous');
+            $table->time('Heure');
+            $table->unsignedBigInteger('id_pat');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('constaters');
+        Schema::dropIfExists('rendez__vouses');
     }
 };

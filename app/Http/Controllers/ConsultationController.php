@@ -19,9 +19,9 @@ class ConsultationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Consultation $consultation)
+    public function store(Request $request)
     {
-        Consultation::create($consultation->post());
+        Consultation::create($request->post());
 
         return response()->json([
             'message' => 'Consultation created successfully'
