@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->date('date_consultation');
             $table->time('motif_consultation');
-            $table->unsignedBigInteger('id_pat');
+            $table->unsignedBigInteger('id_patient');
             $table->unsignedBigInteger('id_med');
-            $table->unsignedBigInteger('id_path');
+            $table->unsignedBigInteger('id_pathologie');
             $table->timestamps();
         });
     }
